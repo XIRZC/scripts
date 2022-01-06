@@ -7,6 +7,7 @@ picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -
 /bin/bash ~/scripts/tap-to-click.sh &
 /bin/bash ~/scripts/inverse-scroll.sh &
 nm-applet &
+qv2ray &
 xfce4-power-manager &
 xfce4-volumed-pulse &
 #/bin/bash ~/scripts/run-mailsync.sh &

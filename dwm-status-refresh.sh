@@ -93,9 +93,9 @@ get_battery_charging_status() {
 
 	if $(acpi -b | grep --quiet Discharging)
 	then
-		echo "";
+		echo "N";
 	else # acpi can give Unknown or Charging if charging, https://unix.stackexchange.com/questions/203741/lenovo-t440s-battery-status-unknown-but-charging
-		echo "🔌";
+		echo "C";
 	fi
 }
 
@@ -116,7 +116,7 @@ print_bat(){
 		#echo -e "${charge}"
 	#fi
 	#echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
-	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
+	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%";
 }
 
 print_date(){
@@ -156,7 +156,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "  💿 $(print_mem)M $(dwm_alsa) [ $(print_bat) ]$(show_record) $(print_date) "
+xsetroot -name "  💿 $(print_mem)M $(dwm_alsa) $(vel_recv) $(vel_tran) [ $(print_bat) ]$(show_record) $(print_date) "
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes

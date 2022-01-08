@@ -1,6 +1,6 @@
 #!/bin/bash
 
-result=$(ps ax|grep -v grep|grep blueman-manager)
+result=$(ps ax|grep -v grep|grep blueman-tray)
 if [ "$result" == "" ]; then
   eval "blueman-manager & 
   blueman-tray &"
